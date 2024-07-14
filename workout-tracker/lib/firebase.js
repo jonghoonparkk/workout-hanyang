@@ -1,4 +1,3 @@
-// lib/firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
@@ -14,9 +13,5 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
-if (typeof window !== "undefined") {
-  const analytics = getAnalytics(app);
-}
 
 export { auth };

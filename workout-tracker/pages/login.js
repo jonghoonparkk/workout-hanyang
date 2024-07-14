@@ -1,48 +1,41 @@
-// pages/login.js
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useRouter } from "next/router";
 import { auth } from "../lib/firebase";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
+  const [error, setError] = useState(null);
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/");
+      // 로그인 성공 후 처리
     } catch (error) {
-      console.error("Login failed", error);
+      setError(error.message);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 flex items-center justify-center">
-      <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-6">
-        <h1 className="text-2xl font-bold mb-4">로그인</h1>
+    <div>
+      <h1>Login</h1>
+      {error && <p>{error}</p>}
+      <form onSubmit={handleLogin}>
         <input
           type="email"
-          placeholder="이메일"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-2 mb-2 border rounded"
+          placeholder="Email"
         />
         <input
           type="password"
-          placeholder="비밀번호"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 mb-2 border rounded"
+          placeholder="Password"
         />
-        <button
-          onClick={handleLogin}
-          className="w-full bg-blue-500 text-white p-2 rounded"
-        >
-          로그인
-        </button>
-      </div>
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 }
