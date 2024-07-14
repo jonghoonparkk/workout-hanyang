@@ -1,8 +1,9 @@
+// src/app/page.tsx
 "use client";
 
 import { useState } from 'react';
-import WorkoutForm from '@/components/WorkoutForm'; // Update the import path
-import { BODY_PARTS, type BodyPart, type WorkoutData } from '@/app/constants';
+import WorkoutForm from '../../components/WorkoutForm'; // Relative path
+import { BODY_PARTS, type BodyPart, type WorkoutData } from './constants';
 import { motion } from 'framer-motion';
 
 export default function Page() {
