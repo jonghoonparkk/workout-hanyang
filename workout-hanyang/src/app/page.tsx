@@ -5,7 +5,7 @@ import WorkoutForm from '../../components/WorkoutForm';
 import { BODY_PARTS, type BodyPart, type WorkoutData } from '@/app/constants';
 import { motion } from 'framer-motion';
 
-export default function Home() {
+export default function Page() {
   const [workouts, setWorkouts] = useState<WorkoutData[]>([]);
 
   const addWorkout = (workout: Omit<WorkoutData, 'id'>) => {
