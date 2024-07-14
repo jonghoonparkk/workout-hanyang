@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import WorkoutForm from '../../components/WorkoutForm';
+import WorkoutForm from '@/components/WorkoutForm'; // Update the import path
 import { BODY_PARTS, type BodyPart, type WorkoutData } from '@/app/constants';
 import { motion } from 'framer-motion';
 
