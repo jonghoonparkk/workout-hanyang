@@ -1,13 +1,15 @@
+// lib/firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDw-QVIBIGNwfbtFUxvepsN1qklJ9XsVz0",
-  authDomain: "workout-hanyang.firebaseapp.com",
-  projectId: "workout-hanyang",
-  storageBucket: "workout-hanyang.appspot.com",
-  messagingSenderId: "705268870513",
-  appId: "1:705268870513:web:fb90e8f80333191b411ad0",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+  // measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID 제거합니다.
 };
 
 const app = initializeApp(firebaseConfig);
