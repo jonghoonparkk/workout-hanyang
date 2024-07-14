@@ -1,4 +1,4 @@
-// app/constants.ts
+// src/app/constants.ts
 export const BODY_PARTS = {
     CHEST: '가슴',
     BACK: '등',
